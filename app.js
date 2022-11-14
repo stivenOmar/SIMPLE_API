@@ -1,4 +1,4 @@
 const Server = require("./models/server");
 
-const api = new Server();
-api.listen();
+const apiService = new Server();
+apiService.listen();
