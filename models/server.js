@@ -15,12 +15,11 @@ const deployApi = async () =>{
 
 configureMiddlewares = (server) =>{
     server.use(cors());
-    server.use(express.json());
 }
 
 configureRoutes = (server) => {
     server.use("/product", require("../routes/product.routes"));
-    server.use("/category", require("../routes/category.routes"));
+    server.use("/client", require("../routes/client.routes"));
 }
 
 listen = (server, port = 3000) => {

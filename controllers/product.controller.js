@@ -1,10 +1,9 @@
 const { response, request} = require("express");
+const Product = require("../models/product");
 
-
-const getProducts = (req = request, res = response) => {
-    res.status(200).json({
-        
-    });
+const getProducts = async (req = request, res = response) => {
+    const products = await Product.find();
+    res.status(200).json(products);
 }
 
 module.exports = {
