@@ -39,9 +39,17 @@ Estructura de una api de prueba utilizando express y moongose
 
 ```
 http://localhost:8080/clients
+
+http://localhost:8080/clients?property=value
+
+http://localhost:8080/clients?select="property1 property2 ..."
 ```
 > ### End point products
 
 ```
 http://localhost:8080/products
+
+http://localhost:8080/products?property=value
+
+http://localhost:8080/products?select="property1 property2 ..."
 ```
