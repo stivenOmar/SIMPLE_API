@@ -3,27 +3,33 @@ const Client = require("../models/client");
 const { isObjectEmpty } = require("./helpers");
 
 const getClients = async (req = request, res = response) => {
-
-    const finderProperty = req.query;
-
-    if (!isObjectEmpty(finderProperty)) {
-        return findByProperties(req, res);
+    try {
+        const finderProperty = req.query;
+    
+        if (!isObjectEmpty(finderProperty)) {
+            return findByProperties(req, res);
+        }
+    
+        const clients = await Client.find();
+        res.status(200).json(clients);
+    } catch (error) {
+        errorApi()
     }
-
-    const clients = await Client.find();
-    res.status(200).json(clients);
 }
 
 const findByProperties = async (req = request, res = response) => {
-
-    const property = req.query;
-    const [propertyName] = Object.keys(property);
-
-    const clients = propertyName.toLowerCase() == "select" ?
-        await getClientsByProperties(property[propertyName]) :
-        await getClientsByPropertyValue(property)
-
-    res.status(200).json(clients);
+    try {
+        const property = req.query;
+        const [propertyName] = Object.keys(property);
+    
+        const clients = propertyName.toLowerCase() == "select" ?
+            await getClientsByProperties(property[propertyName]) :
+            await getClientsByPropertyValue(property)
+    
+        res.status(200).json(clients);
+    } catch (error) {
+        errorApi()
+    }
 }
 
 const getClientsByProperties = async (properties) => {
@@ -36,6 +42,10 @@ const getClientsByPropertyValue = async (property) => {
     const clients = await Client.find(property);
     return clients;
 }
+
+const errorApi = (msg = "Error api") => res.status(500).json({
+    msg: "Error when consulting the clients collection"
+})
 
 module.exports = {
     getClients
