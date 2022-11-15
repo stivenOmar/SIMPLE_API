@@ -4,9 +4,9 @@ const { isObjectEmpty } = require("./helpers");
 
 const getClients = async (req = request, res = response) => {
 
-    const property = req.query;
+    const finderProperty = req.query;
 
-    if (!isObjectEmpty(property)) {
+    if (!isObjectEmpty(finderProperty)) {
         return findByProperties(req, res);
     }
 
