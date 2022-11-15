@@ -15,7 +15,7 @@ const getClients = async (req = request, res = response) => {
         return getClientsBy(res, property[nameProperty]); 
     }
     
-    return getClientsByProperty(res, property)
+    return getClientsByProperty(res, property);
 }
 
 const isObjectEmpty = (object) => {
