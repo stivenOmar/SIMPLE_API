@@ -18,8 +18,8 @@ configureMiddlewares = (server) =>{
 }
 
 configureRoutes = (server) => {
-    server.use("/product", require("../routes/product.routes"));
-    server.use("/client", require("../routes/client.routes"));
+    server.use("/products", require("../routes/product.routes"));
+    server.use("/clients", require("../routes/client.routes"));
 }
 
 listen = (server, port = 3000) => {

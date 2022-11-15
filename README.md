@@ -38,10 +38,10 @@ Estructura de una api de prueba utilizando express y moongose
 > ### End point clients
 
 ```
-http://localhost:8080/client
+http://localhost:8080/clients
 ```
 > ### End point products
 
 ```
-http://localhost:8080/product
+http://localhost:8080/products
 ```
